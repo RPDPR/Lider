@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лидер Поиска</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header__content">
+                <a href="index.html"><img src="img/lp_logo 1.svg" alt="logo"></a>
+            </div>
+        </div>
+    </header>
+    <section class="section">
+        <div class="container">
+            <h1 class="h1">Корзина</h1>
+
+            <div class="content__bin"></div>
+
+            <div class="content__form">
+                <h2 class="form_header">Пожалуйста, представьтесь</h2>
+                <form action="/" method="post">
+                    <div class="form_card">
+                        <input placeholder="Ваше имя" spellcheck="false" class="card_input" type="text">
+                    </div>
+                    <div class="form_card">
+                        <input placeholder="Телефон" spellcheck="false" class="card_input" type="text">
+                    </div>
+                    <div class="form_card">
+                        <input placeholder="Email" spellcheck="false" class="card_input" type="text">
+                    </div>
+                </form>
+                <button disabled="disabled" class="form_btn"><span class="form_btn-text">Оформить заказ</span></button>
+            </div>
+        </div>
+    </section>
+    <script src="js/event.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/bin.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> 
+
+    <link rel="stylesheet" href="smartbasket/css/smartbasket.min.css">
+    <div class="smart-basket__wrapper"></div>
+    <script src="./smartbasket/js/smartbasket.min.js"></script>
+	<script>
+		$(function () {
+			$('.smart-basket__wrapper').smbasket({
+				productElement: 'клас обвертки карточки товара',
+				buttonAddToBasket: 'клас кнопки купить',
+				productPrice: 'product__price-number',
+				productSize: 'product__size-element',
+				
+				productQuantityWrapper: 'product__quantity',
+				smartBasketMinArea: 'класс корзины',
+				countryCode: '+7',
+				smartBasketCurrency: '₽',
+				smartBasketMinIconPath: './smartbasket/img/shopping-basket-wight.svg',
+
+				agreement: {
+					isRequired: true,
+					isChecked: true,
+					isLink: 'https://artstranger.ru/privacy.html',
+				},
+				nameIsRequired: false,
+			});
+		});
+	</script>
+</body>
+</html>
