@@ -51,6 +51,7 @@ content_card.forEach((el) => {
 
 function mainBin(){
     let bin_cell = document.querySelectorAll('.bin_cell')
+    let check = 0
 
     bin_cell.forEach((el) => {
         el.addEventListener('mouseover', (e) => {
@@ -107,6 +108,8 @@ function mainBin(){
             })
 
             cell_cross.addEventListener('click', (e) => {
+                const bin_summ = document.querySelector('.bin_summ')
+                const summ_value = document.querySelector('.summ-value')
                 const cont = el.parentElement
                 cont.remove()
 
@@ -118,8 +121,19 @@ function mainBin(){
                         return true;
                     }
                 })
-            })
+                if(check == 0){
 
+                    summ_value.innerHTML = (Number(summ_value.innerHTML) - Number(price)).toString()
+
+                    if(Number(summ_value.innerHTML) == 0){
+                        bin_summ.remove()
+                    }
+
+                    check += 1
+                }
+            })
+            
+            check = 0
         })
         el.addEventListener('mouseout', (e) => {
             e.preventDefault()

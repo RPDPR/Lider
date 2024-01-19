@@ -1,5 +1,6 @@
 const bin_storage = JSON.parse(localStorage.getItem('bin') || "[]")
 const content_bin = document.querySelector('.content__bin')
+let summ_value = []
 
 if(bin_storage.length){
     bin_storage.forEach((el)=>{
@@ -26,11 +27,16 @@ if(bin_storage.length){
         <div class="bin_line"></div>
         `
         content_bin.appendChild(newCard)
+
+        summ_value.push(Number(price))
     })
 
     const bin_summ = document.createElement('div')
     bin_summ.classList.add('bin_summ')
-    bin_summ.innerHTML = `Сумма <span class="summ-value">69990</span>₽`
+
+    summ_value = summ_value.reduce((a, b) => a + b, 0)
+
+    bin_summ.innerHTML = `Сумма <span class="summ-value">${summ_value}</span>₽`
     content_bin.appendChild(bin_summ)
 
     mainBin()
